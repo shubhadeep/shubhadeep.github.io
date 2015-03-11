@@ -1,29 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Card Flip</title>
 	<meta charset="utf-8">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-title" content="Sun" />
 	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
-	<script type="text/javascript" language="javascript" src="CardFlip.js"></script>
-	<link rel="stylesheet" href="CardFlip.css" media="screen"/>
+	<title>Test Mobile App</title>
+	<link rel="apple-touch-startup-image" href="resources/iphone.png" />
+	<link rel="apple-touch-startup-image" href="resources/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" />
+	<link rel="apple-touch-startup-image" href="resources/ipad-landscape.png"  media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" />
+	<link rel="apple-touch-startup-image" href="resources/ipad-portrait@2x.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio: 2)" />
+	<link rel="apple-touch-startup-image" href="resources/ipad-landscape@2x.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 2)" />
+	<link rel="apple-touch-startup-image" href="resources/iphone5.png" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />
 </head>
-<body>
-	<div id="container">
-		<!-- Shows a card with suit characters. We use the ascii table to display these suit characters. -->
-		<div id="card" class="card" onclick="flip(event)">
-			<!-- The front and face classes are respectively used to style the front and back of the card -->
-			<!-- Shows the front of the card. Shown when this page initially loads in Safari on iPhone 2.0 or in iPhone simulator. -->
-			<div id="front" class="front face">
-				<p>♠ ♦<br> ♣ ♥</p>
-			</div>
-			<!-- Shows the back of the card. Hidden when this page initially loads in Safari on iPhone 2.0 or in iPhone simulator. -->
-			<div id="back" class="back face">
-				<p>♦ ♠<br> ♥ ♣</p>
-			</div>
-		</div>
+<body class="preview">
+	<div id="app">
+		<h1>Hello World</h1>
 	</div>
 </body>
 </html>
