@@ -1,20 +1,96 @@
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="apple-mobile-web-app-title" content="Mobile App" />
-	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
-	<title>Test Mobile App</title>
-	<style>
-		body { background-color: black; color: #ffffff; font-family: helvetica ;}
-	</style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV App</title>
 </head>
-<body class="preview">
-	<div id="app">
-		<h1>Hello World</h1>
-	</div>
+<style>
+  :root(*) {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  body {
+    background-color: #333;
+  }
+  #container {
+    cursor: none;
+    border: 1px solid white;
+  }
+  .grey {
+    border: 1px solid #444;
+    background-color: #555;
+  }
+
+  .box {
+    font-family: sans-serif;
+    font-size: 4rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    height: 5rem;
+    width: 5rem;
+    margin: 0.5rem;
+  }
+
+  .box:focus {
+    color: white;
+    background-color: #222;
+    border: 1px solid white;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+</style>
+<body>
+  <div id="container">
+    <div class="row">
+      <div id="one" tabindex="0" class="grey box">1</div>
+      <div id="two" tabindex="0" class="grey box">2</div>
+      <div id="three" tabindex="0" class="grey box">3</div>  
+    </div>
+    <div class="row">
+      <div id="four" tabindex="0" class="grey box">4</div>
+      <div id="five" tabindex="0" class="grey box">5</div>
+      <div id="six" tabindex="0" class="grey box">6</div>  
+    </div>
+    <div class="row">
+      <div id="seven" tabindex="0" class="grey box">7</div>
+      <div id="eight" tabindex="0" class="grey box">8</div>
+      <div id="nine" tabindex="0" class="grey box">9</div>  
+    </div>  
+  </div>
+
+<script>
+  var targets = {
+    one: [null, null, "two", "four"],
+    two: ["one", null, "three", "five"],
+    three: ["two", null, null, "six"],
+    four: [null, "one", "five", "seven"],
+    five: ["four", "two", "six", "eight"],
+    six: ["five", "three", null, "nine"],
+    seven: [null, "four", "eight", null],
+    eight: ["seven", "five", "nine", null],
+    nine: ["eight", "six", null, null]
+  };
+
+    window.addEventListener("keydown", function (e) {
+      console.log(e.keyCode);
+      var index = e.keyCode - 37;
+      var target = e.target.id;
+      var next;
+      if (targets[target]) {
+        next = targets[target][index];
+        console.log(next);
+        if (next) {
+          document.getElementById(next).focus();
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }
+      //debugger;
+    });
+    document.getElementById("one").focus();
+  </script>
 </body>
 </html>
